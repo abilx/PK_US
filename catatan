@@ -1,0 +1,75 @@
+INSERT INTO `wargas` (`id_warga`, `nik`, `no_kk`, `username`, `password`, `nama_kepala_keluarga`, `nokk_kepala_keluarga`, `status_hubungan_dalam_keluarga`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `nama_dusun`, `kode_pos`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `golongan_darah`, `pendidikan`, `pekerjaan`, `status_hubungan`, `status_perkawinan`, `nomor_passport`, `tgl_akhir_passport`, `nomor_kitaskitap`, `nik_ayah`, `nama_ayah`, `nik_ibu`, `nama_ibu`, `tgl_keluar_kk`, `foto_warga`, `tgl_perkawinan`, `status_akta_kawin`, `akta_kawin`, `status_akta_cerai`, `akta_cerai`, `tgl_cerai`, `status_akta_kelahiran`, `akta_kelahiran`, `status_kelainan`, `kelainan`, `email_warga`, `no_hp_warga`, `rt`, `rw`, `created_at`, `updated_at`, `deleted_at`) VALUES ('1', '123123', '321321', 'andra_hafiz', '$2y$10$JYq/6pqTTEKOulOWK4nzG.fE8Xc/N9gt/f69cuFvClZa6FzLyP4.G', 'Ibra', '12345678', '1', 'jl. PBSI', '1', '1', '1', '1', '1', '098098', 'Andra Hafiz HSB', 'Medan', '2000-06-29 16:47:18', '1', '1', '1', '1', '1', '1', 'belum_kawin', NULL, NULL, NULL, '456456', 'ibra', '75848', 'laura', NULL, 'no-image.png', NULL, '0', NULL, '0', NULL, NULL, '0', NULL, '0', NULL, 'andrahafizhsb03@gmail.com', '082276853372', '1', '1', NULL, NULL, NULL);
+
+INSERT INTO `pengaduans` (`id_pengaduan`, `judul_pengaduan`, `nik`, `kategori_pengaduan`, `deskripsi_pengaduan`, `bukti_pengaduan`, `id_rt`, `created_at`, `updated_at`, `deleted_at`) VALUES (NULL, 'judul', '123', 'asd', ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fugiat aliquam dignissimos laborum hic sint eius odit deserunt veniam ex sit, minus nulla voluptas, facilis nesciunt reiciendis corporis ducimus vitae!\r\n Similique adipisci eaque voluptas saepe debitis ab in consequatur recusandae deleniti? Autem soluta illo alias in consectetur ipsum provident, necessitatibus mollitia dolores ipsam voluptas rem inventore eos minus maxime et.\r\n Molestiae aut facilis nisi. Quibusdam temporibus tempore tempora corrupti eveniet, dicta, commodi harum ab, autem magnam impedit eius. Laudantium quis in quo a excepturi aliquid quibusdam ducimus distinctio sunt dolorum.\r\n At nesciunt vero consectetur totam, accusamus, placeat vitae enim harum quis fugit ipsum hic a eius est commodi fugiat pariatur sint inventore eligendi vel error? Exercitationem impedit recusandae voluptatem. Temporibus?\r\n Perferendis quisquam obcaecati dignissimos nobis velit sunt unde officia dicta laudantium praesentium. Eveniet eius at pariatur atque est id explicabo delectus repellendus, corporis adipisci aliquid, doloribus aliquam facilis nemo consequuntur?\r\n Autem, consequuntur exercitationem quae iure ipsam a libero optio quaerat debitis soluta vero. Dignissimos ex illo fuga est, non, doloribus laboriosam consequatur, incidunt totam beatae nulla molestias atque cupiditate alias.\r\n Aut, ipsum aliquam earum officia unde odit. Nam, necessitatibus officia? Laborum, deleniti voluptatem. Sint molestias sequi minus nihil, ut odit aspernatur nesciunt quidem consequatur, magnam libero consequuntur quia similique? Hic.\r\n Aspernatur numquam quae omnis molestiae perspiciatis impedit cupiditate illo tempora veniam ullam totam maxime perferendis dolorem, aliquid sapiente aperiam tenetur quod sit fuga voluptatibus. Illo reiciendis nesciunt facilis explicabo tempora?\r\n Molestiae est praesentium tempore iste unde distinctio eos. Eum labore quidem deleniti fugiat quia laborum architecto ducimus. Aliquid, placeat. Nulla totam voluptatem sequi, repellendus quasi vitae? Dolor facere sed impedit!\r\n Tenetur distinctio ut enim a in facere autem! Reiciendis consequuntur ipsam porro fugit, quidem quaerat nobis qui, vel non voluptates dolor rerum, perferendis accusantium tempore libero. Ullam laboriosam tempore voluptates.', 'asd', '1', '2022-05-10 11:01:12', NULL, NULL)
+
+https://youtu.be/upn5ieyL48k
+
+ //mengganti nama URL pada resource controller RouteServiceProvider
+
+  //belongsTo(namamodel, foreign key tabel rt, primary key tabel sendiri)
+        return $this->belongsTo(rw::class, 'id_rw', 'id_rw');
+        //hasMany(namamodel, foreign key tabel warga, primary key tabel sendiri)
+        return $this->hasMany(Warga::class, 'rt', 'id_rt');
+
+
+ const detail = (id) => {
+             const asd ={{route('rt.pengaduan.show',${id})}};
+            const judul_pengaduan = document.getElementById('judul_pengaduan');
+            const deskripsi_pengaduan = document.getElementById('deskripsi_pengaduan');
+            const kategori_pengaduan = document.getElementById('kategori_pengaduan');
+            const tanggal_pengaduan = document.getElementById('tanggal_pengaduan');
+            // console.log(deskripsi_pengaduan.textContent);
+            // console.log(deskripsi_pengaduan.textContent);
+            fetch(id)
+            // .then(alert(``))
+                // .then(respone =>respone.json())
+                // .then(data=>{
+                //     judul_pengaduan.textContent = data[0].judul_pengaduan;
+                //     deskripsi_pengaduan.textContent = data[0].deskripsi_pengaduan;
+                //     kategori_pengaduan.textContent = data[0].kategori_pengaduan;
+                //     //membuat tanggal indonesia
+                //     const event = new Date(data[0].created_at);
+                //     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                //     tanggal_pengaduan.textContent = event.toLocaleDateString('id-ID',options);
+                //     //end membuat tanggal indonesia
+                //     let status = '';
+                //     if(data[0].status_pengaduan == 0){
+                //         status = '<span class="badge badge-warning">Proses</span>'
+                //     }
+                //     status_pengaduan.innerHTML = status;
+                // })
+            //end membuat modal detail
+         }
+
+
+$today = Carbon::now()->isoFormat('D MMMM Y');
+// "28 Juni 2020"
+
+$today = Carbon::now()->isoFormat('dddd, D MMMM Y');
+// "Minggu, 28 Juni 2020"
+
+$today = Carbon::now()->isoFormat('dddd, D MMM Y');
+// "Minggu, 28 Jun 2020"
+
+$registeredAt = $user->created_at->isoFormat('dddd, D MMMM Y');
+// "Minggu, 28 Juni 2020"
+
+$lastUpdated = $post->updated_at->diffForHumans();
+// "2 hari yang lalu"
+
+Membuat Sekaligus
+php artisan make:model -a office --> membuat model, controller, factory, seeder. migration
+php artisan make:model -cm office --> membuat model, controller, migration
+
+Generate migrate
+php artisan migrate:generate
+
+seed
+php artisan iseed tablename
+
+
+// Update Database
+php artisan db:wipe
+php artisan migrate
+php artisan db:seed
+// php artisan migrate --path=database/migrations/fk
